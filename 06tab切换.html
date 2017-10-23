@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+       .box{
+           width: 448px;
+           margin: 50px auto;
+           height: 200px;
+           border: 1px solid #000;
+       }
+       .box .mei{
+           overflow: hidden;
+           width: 100%;
+           background: #cccccc;
+           height: 50px;
+           line-height: 50px;
+       }
+        .box .mei li{
+            float: left;
+            list-style: none;
+            padding: 0px 40px;
+            cursor: pointer;
+        }
+        .box .mei li.cur{
+            background: white;
+        }
+        .box .content >div{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="mei">
+        <li class="cur">首页</li>
+        <li>首页</li>
+        <li>首页</li>
+        <li>首页</li>
+    </ul>
+
+    <div class="content">
+        <div style="display: block">我是第一个开外挂我看过凉快圣诞节ds我是第一个开外挂我看过凉快圣诞节ds我是第一个开外挂我看过凉快圣诞节ds我是第一个开外挂我看过凉快圣诞节ds</div>
+        <div>22222222222</div>
+        <div>3333333333333</div>
+        <div>看到单身快乐积分束带结发圣诞节饭店上岛咖啡时间看到单身快乐积分束带结发圣诞节饭店上岛咖啡时间看到单身快乐积分束带结发圣诞节饭店上岛咖啡时间看到单身快乐积分束带结发圣诞节饭店上岛咖啡时间看到单身快乐积分束带结发圣诞节饭店上岛咖啡时间</div>
+    </div>
+</div>
+<script src="jquery3.2.1.js"></script>
+<script>
+    $(".box .mei li").mouseover(function () {
+        $(this).addClass("cur").siblings().removeClass()
+        var index = $(".box .mei li").index(this);
+        $(".box .content > div").hide().eq(index).show();
+    })
+</script>
+</body>
+</html>

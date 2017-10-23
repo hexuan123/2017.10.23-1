@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 600px;
+            margin: 50px auto;
+        }
+        .list{
+            background: #cccccc;
+            width: 600px;
+        }
+        .list > li{
+            float: left;
+            padding: 15px 30px;
+            background: #cccccc;
+        }
+        .list .list-child{
+            display: none;
+        }
+        .list > li .list-child>li{
+            padding: 10px 0;
+
+        }
+        .list .cur{
+            background: #999;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="list">
+        <li class="cur"><span>首页</span>
+            <ul style="margin-top: 15px" class="list-child">
+                <li>产品设计</li>
+                <li>产品设计</li>
+                <li>产品设计</li>
+                <li>产品设计</li>
+            </ul>
+        </li>
+        <li class="cur"><span>首页</span>
+            <ul style="margin-top: 15px" class="list-child">
+                <li>产品设计</li>
+                <li>产品设计</li>
+                <li>产品设计</li>
+                <li>产品设计</li>
+            </ul>
+        </li>
+        <li class="cur"><span>首页</span>
+            <ul style="margin-top: 15px" class="list-child">
+                <li>产品设计</li>
+                <li>产品设计</li>
+                <li>产品设计</li>
+                <li>产品设计</li>
+            </ul>
+        </li>
+        <li class="cur"><span>首页</span>
+            <ul style="margin-top: 15px" class="list-child">
+                <li>产品设计</li>
+                <li>产品设计</li>
+                <li>产品设计</li>
+                <li>产品设计</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="jquery3.2.1.js"></script>
+<script>
+    $(".box >.list>li").mouseover(function () {
+        $(this).addClass("cur").siblings().removeClass();
+        $(this).find(".list-child").stop().slideDown(500);
+    })
+
+            .mouseout(function () {
+        $(this).find(".list-child").stop().slideUp(500);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="append">
+<input type="button" value="prepend">
+<div class="box"></div>
+<script src="jquery3.2.1.js"></script>
+<script>
+    $("input").eq(0).click(function () {
+        $(".box").append("<h1>1111</h1>")
+    })
+    $("input").eq(1).click(function () {
+        $(".box").prepend("<p>2222</p>");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 790px;
+            position: relative;
+            height: 340px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .box ol{
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            bottom: 20px;
+            font-size: 0;
+            padding: 4px 8px;
+            border-radius: 12px;
+            background-color: hsla(0,0%,100%,.3);
+            margin-left: -63px;
+        }
+        .box ol li{
+            display: inline-block;
+            margin-right: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 100%;
+            background-color: #fff;
+        }
+        .box .btn a{
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            margin-top: -30px;
+            width: 30px;
+            height: 60px;
+            background-color: #333;
+            background-color: rgba(0,0,0,.1);
+            line-height: 60px;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .box .btn a:nth-child(2){
+            right: 0px;
+            left: inherit;
+        }
+        .box ol li.cur{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="images/01.jpg" alt=""></li>
+        <li><img src="images/02.jpg" alt=""></li>
+        <li><img src="images/03.jpg" alt=""></li>
+        <li><img src="images/04.png" alt=""></li>
+        <li><img src="images/05.png" alt=""></li>
+    </ul>
+    <ol>
+        <li class="cur"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <div class="btn">
+        <a href="javascript:;" onclick="pre()"><</a>
+        <a href="javascript:;" onclick="next()">></a>
+    </div>
+</div>
+<script src="jquery3.2.1.js"></script>
+<script>
+    var $aLi =$(".box ul li");
+    var $aBtn = $(".box ol li");
+    var $oOl = $(".box ol");
+    var key = 0;
+    function next() {
+        key++;
+        key>$aLi.length?key=0:key;
+        $aLi.eq(key).fadeIn(150).siblings().fadeOut(150);
+        cur();
+    }
+    function pre() {
+        key--;
+       if (key<0){
+           key=$aLi.length-1;
+       }
+        $aLi.eq(key).fadeIn(150).siblings().fadeOut(150);
+        cur()
+    }
+    function cur() {
+        $aBtn.eq(key).addClass("cur").siblings().removeClass("cur");
+    }
+
+</script>
+</body>
+</html>

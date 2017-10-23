@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 650px;
+            margin: 100px auto;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        .box ul{
+            position: relative;
+            z-index: 3;
+        }
+        .box ul li{
+            position: absolute;
+            float: left;
+            width: 650px;
+            top: 0px;
+            left: 0px;
+        }
+        .box ol{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 4;
+        }
+        .box ol li{
+            width: 25px;
+            height: 25px;
+            border: 1px solid #000;
+            float: left;
+            cursor: pointer;
+            text-align: center;
+            line-height: 25px;
+        }
+        .box ol li+li{
+            margin-left: 10px;
+        }
+        .box ol li.cur{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="img/01.jpg" alt=""></li>
+        <li><img src="img/02.jpg" alt=""></li>
+        <li><img src="img/03.jpg" alt=""></li>
+        <li><img src="img/04.jpg" alt=""></li>
+        <li><img src="img/05.jpg" alt=""></li>
+    </ul>
+</div>
+<script src="jquery3.2.1.js"></script>
+<script>
+    var $oUl = $(".box ul");
+    var $aLi = $(".box ul li");
+    var key = 0;
+    var zIndex = 30;
+    $aLi.eq(0).css('zIndex',zIndex);
+    $oUl.after("<ol></ol>");
+    var $oOl = $(".box ol");
+    $aLi.each (function (index) {
+      $oOl.append("<li>"+(index+1)+"</li>");
+    });
+    $oOl.find("li").eq(0).addClass("cur");
+    $oOl.find("li").mouseenter(function () {
+        zIndex++;
+        $(this).addClass("cur").siblings().removeClass("cur");
+        $aLi.eq(key).stop().animate({left:"-650px",zIndex:zIndex},1000);
+        key++;
+        key>$aLi.length?key=0:key;
+        $aLi.eq(key).css({left:"650px",zIndex:zIndex});
+        $aLi.eq(key).stop().animate({left:"0px",zIndex:zIndex},1000);
+    })
+
+</script>
+</body>
+</html>
